@@ -56,7 +56,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Habilitar redirección HTTPS
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 // ACTIVAR CORS (si no está aquí, NO FUNCIONA)
 app.UseCors("AllowFrontend");
