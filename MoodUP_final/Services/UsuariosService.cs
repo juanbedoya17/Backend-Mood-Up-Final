@@ -30,7 +30,8 @@ namespace MoodUP_final.Services
                 NombreUsuario = registroDto.nombreUsuario,
                 Correo = registroDto.correo,
                 Contrasena = has, // Se guarda el has, no la contraseña original
-                FechaRegistro = DateTime.Now
+                FechaRegistro = DateTime.UtcNow
+
             };
 
             _context.Usuario.Add(nuevoUsuario);

@@ -46,7 +46,8 @@ namespace MoodUP_final.Services
             {
                 IdUsuario = registroDto.IdUsuario,
                 IdEmocion = registroDto.IdEmocion,
-                FechaRegistro = DateTime.Now
+                FechaRegistro = DateTime.UtcNow
+
             };
 
             _context.RegistroEmocion.Add(nuevoRegistro);

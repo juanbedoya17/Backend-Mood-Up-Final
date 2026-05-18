@@ -46,7 +46,8 @@ namespace MoodUP_final.Services
                 {
                     IdUsuario = model.IdUsuario,
                     IdReto = model.IdReto,
-                    FechaCompletado = DateTime.Now
+                    FechaCompletado = DateTime.UtcNow
+
                 };
                 await _context.RetoCompletado.AddAsync(nuevo);
                 await _context.SaveChangesAsync();
