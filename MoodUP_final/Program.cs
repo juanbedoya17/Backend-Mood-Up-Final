@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MoodUP_final.Data;
 using MoodUP_final.Services;
 using MoodUP_final.Services.Interface;
@@ -24,7 +23,7 @@ builder.Services.AddCors(options =>
 var connectionString = builder.Configuration.GetConnectionString("MoodUpConnection");
 
 builder.Services.AddDbContext<MoodUpContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseNpgsql(connectionString));
 
 // Activar controladores API
 builder.Services.AddControllers();
