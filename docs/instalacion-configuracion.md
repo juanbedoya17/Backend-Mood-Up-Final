@@ -1,148 +1,157 @@
 
-# Modelo de datos - Mood-Up
+# Instalación y configuración - Mood-Up
 
 ## 1. Introducción
 
-El modelo de datos de Mood-Up define la información necesaria para el funcionamiento de la aplicación y la relación entre los diferentes elementos que intervienen en la experiencia del usuario.
-
-La base de datos utiliza MySQL como sistema gestor y permite almacenar la información relacionada con usuarios, estados emocionales, historial emocional, contenido audiovisual, retos y calificaciones.
+Esta documentación describe los requisitos, pasos de instalación, configuración y ejecución necesarios para trabajar con el proyecto Mood-Up, incluyendo el frontend, backend, base de datos y herramientas utilizadas durante el desarrollo.
 
 ---
 
-## 2. Entidades principales
+## 2. Prerrequisitos
 
-El modelo de datos está compuesto por las siguientes entidades:
+Antes de ejecutar el proyecto se deben tener instaladas y configuradas las siguientes herramientas:
 
-* Usuario
-* Emoción
-* Historial emocional
-* Contenido audiovisual
-* Reto
-* Calificación
+* Git.
+* Node.js y npm.
+* Visual Studio.
+* MySQL.
+* phpMyAdmin.
+* Repositorio del frontend.
+* Repositorio del backend.
 
----
-
-## 3. Usuario
-
-La entidad **Usuario** representa a las personas que utilizan la aplicación Mood-Up.
-
-Esta entidad permite almacenar la información necesaria para identificar y gestionar a los usuarios del sistema.
-
-Entre sus principales responsabilidades se encuentran:
-
-* Identificar al usuario dentro de la aplicación.
-* Permitir el registro e inicio de sesión.
-* Gestionar la información necesaria para la autenticación.
-* Asociar al usuario con su historial emocional.
-* Relacionar al usuario con las calificaciones realizadas sobre el contenido.
+Además, se requiere contar con la configuración correspondiente del frontend, backend y base de datos.
 
 ---
 
-## 4. Emoción
+## 3. Clonar el proyecto
 
-La entidad **Emoción** representa los diferentes estados emocionales que pueden ser seleccionados o identificados dentro de Mood-Up.
+Para obtener el código fuente se utiliza Git.
 
-Las emociones son utilizadas como elemento principal para personalizar el contenido y las actividades ofrecidas al usuario.
-
-Esta entidad permite relacionar un estado emocional con:
-
-* Historial emocional.
-* Contenido audiovisual.
-* Retos.
-* Frases y recomendaciones relacionadas con el estado emocional.
-
----
-
-## 5. Historial emocional
-
-La entidad **Historial emocional** permite registrar los estados emocionales asociados a un usuario a lo largo del tiempo.
-
-Su finalidad es mantener un registro de las emociones identificadas o seleccionadas por el usuario.
-
-Esta información permite:
-
-* Asociar emociones con usuarios.
-* Mantener un registro de los estados emocionales.
-* Consultar el historial emocional.
-* Utilizar la información emocional para personalizar la experiencia.
-
-La relación principal de esta entidad se establece entre el **Usuario** y la **Emoción**.
-
----
-
-## 6. Contenido audiovisual
-
-La entidad **Contenido audiovisual** representa las películas y series disponibles dentro de Mood-Up.
-
-El contenido puede estar relacionado con diferentes estados emocionales para permitir la generación de recomendaciones personalizadas.
-
-Esta entidad permite gestionar información relacionada con:
-
-* Películas.
-* Series.
-* Recomendaciones según la emoción.
-* Tráileres.
-* Calificaciones realizadas por los usuarios.
-
----
-
-## 7. Reto
-
-La entidad **Reto** representa las actividades o desafíos personalizados que se presentan al usuario.
-
-Los retos pueden estar asociados a diferentes estados emocionales y permiten ofrecer actividades acordes con la experiencia emocional del usuario.
-
-Su finalidad es proporcionar alternativas de interacción y actividades personalizadas dentro de Mood-Up.
-
----
-
-## 8. Calificación
-
-La entidad **Calificación** representa la valoración realizada por los usuarios sobre el contenido audiovisual.
-
-Esta entidad permite relacionar:
-
-* El usuario que realiza la valoración.
-* El contenido audiovisual que recibe la valoración.
-
-Las calificaciones permiten registrar la valoración realizada sobre el contenido disponible en la aplicación.
-
----
-
-## 9. Relaciones principales
-
-Las entidades del modelo de datos se relacionan para permitir el funcionamiento de las diferentes funcionalidades de Mood-Up.
-
-Las relaciones principales son:
+El repositorio del frontend utilizado durante el proyecto es:
 
 ```text
-Usuario
-   │
-   ├──────────► Historial emocional ◄────────── Emoción
-   │
-   └──────────► Calificación ────────────────► Contenido audiovisual
-                                                    │
-                                                    │
-                                                    ▼
-                                                  Emoción
-
-Emoción ───────────────► Reto
+https://github.com/juanbedoya17/frontend-react-native.git
 ```
 
-De esta manera:
+El backend se encuentra en el repositorio correspondiente de Mood-Up.
 
-* Un **Usuario** puede tener registros en su **Historial emocional**.
-* Cada registro del **Historial emocional** se relaciona con una **Emoción**.
-* El **Contenido audiovisual** puede estar asociado a diferentes emociones.
-* Los **Retos** se relacionan con estados emocionales.
-* Un **Usuario** puede realizar **Calificaciones** sobre el contenido audiovisual.
+Una vez obtenido el código fuente, se debe ingresar a la carpeta del proyecto para realizar su configuración.
 
 ---
 
-## 10. Base de datos
+## 4. Instalación del frontend
 
-Mood-Up utiliza **MySQL** para la gestión y almacenamiento de los datos.
+Después de clonar el repositorio del frontend, se deben instalar las dependencias necesarias mediante npm.
 
-La administración de la base de datos se realiza mediante **phpMyAdmin**, facilitando la gestión de la información almacenada y la administración del entorno de base de datos.
+Ejecutar:
 
-El modelo permite mantener organizada la información necesaria para las funcionalidades principales de la aplicación y establecer relaciones entre los usuarios, sus estados emocionales y el contenido personalizado.
+```bash
+npm install
+```
+
+Este comando instala las dependencias requeridas para ejecutar la aplicación.
+
+---
+
+## 5. Ejecución del frontend
+
+Una vez instaladas las dependencias, el proyecto puede iniciarse mediante:
+
+```bash
+npm start
+```
+
+La aplicación utiliza React Native y Expo para su funcionamiento.
+
+---
+
+## 6. Configuración y ejecución del backend
+
+El backend de Mood-Up está desarrollado utilizando C# y ASP.NET.
+
+Para trabajar con el backend se utiliza Visual Studio.
+
+Los pasos generales son:
+
+1. Obtener el código fuente del backend.
+2. Abrir el proyecto en Visual Studio.
+3. Verificar la configuración del proyecto.
+4. Verificar la conexión con la base de datos.
+5. Restaurar las dependencias necesarias.
+6. Ejecutar el proyecto desde Visual Studio.
+
+El backend proporciona los servicios necesarios para la comunicación con el frontend y la gestión de la lógica del sistema.
+
+---
+
+## 7. Base de datos
+
+Mood-Up utiliza MySQL como sistema gestor de base de datos y phpMyAdmin como herramienta para su administración.
+
+La base de datos almacena la información necesaria para el funcionamiento del sistema y permite al backend realizar las operaciones correspondientes sobre los datos.
+
+Antes de ejecutar completamente el proyecto se debe verificar que la base de datos se encuentre configurada y disponible.
+
+---
+
+## 8. Configuración general
+
+Para el correcto funcionamiento del proyecto se debe verificar:
+
+* Configuración del frontend.
+* Configuración del backend.
+* Conexión con MySQL.
+* Disponibilidad de la base de datos.
+* Dependencias del proyecto.
+* Comunicación entre frontend y backend.
+
+La configuración debe corresponder al entorno en el que se ejecutará el proyecto.
+
+---
+
+## 9. Control de versiones
+
+El proyecto utiliza Git y GitHub como herramientas para el control de versiones.
+
+Durante el desarrollo se utilizaron diferentes ramas, entre ellas:
+
+* `main`
+* `prueba-y-error`
+
+Los cambios realizados en el proyecto se registraron mediante commits descriptivos, permitiendo realizar seguimiento a las modificaciones efectuadas durante el desarrollo.
+
+El frontend y el backend se gestionan mediante repositorios separados.
+
+---
+
+## 10. Integración continua
+
+El proyecto cuenta con un flujo de integración continua mediante **GitHub Actions**.
+
+La configuración del flujo se encuentra en:
+
+```text
+.github/workflows/ci.yml
+```
+
+El flujo de integración continua realiza principalmente las siguientes acciones:
+
+1. Configura el entorno de .NET 8.
+2. Restaura las dependencias del proyecto.
+3. Compila el proyecto.
+4. Permite verificar automáticamente que el backend pueda ser construido correctamente.
+
+La ejecución del flujo fue verificada satisfactoriamente durante el desarrollo del proyecto.
+
+---
+
+## 11. Repositorio del backend
+
+El código fuente y la configuración relacionada con el backend se encuentran disponibles en el repositorio de GitHub:
+
+```text
+https://github.com/juanbedoya17/Backend-Mood-Up-Final
+```
+
+Este repositorio contiene el código del backend, la documentación del proyecto y la configuración correspondiente para la integración continua.
+
